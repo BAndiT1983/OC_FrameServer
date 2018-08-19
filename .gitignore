@@ -33,3 +33,9 @@
 
 /obj/*
 /.vs/*
+*.sln
+*.vcxproj
+*.filters
+CMakeSettings.json
+*.vcxproj
+*.filters
