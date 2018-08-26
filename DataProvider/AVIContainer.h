@@ -7,16 +7,8 @@
 class AVIContainer
 {
 private:
-	/*char *output_filename{}, *hdrBuffer{};
-	unsigned int hdrBufferLen{};
-	std::fstream file{};*/
-	
 	Node* _rootNode{};	// Usually RIFF header
 	unsigned int _fileSize;
-
-	//avi_usersettings usersettings;
-
-	//uint32_t calculateSize(sizeType type);
 
 	unsigned int CreateRIFFHeader(void* buffer, unsigned offset);
 	unsigned int CreateHDRLHeader(void* buffer, unsigned offset);
@@ -26,24 +18,7 @@ private:
 	unsigned int CreateAVIStreamHeader(void* buffer, unsigned offset);
 	unsigned CreateBitmapInfoHeader(void* buffer, unsigned offset);
 
-	//avi_list_h hdrlHeader();
-
-	//AVIMAINHEADER avihHeader();
-
-	//avi_list_h strlHeader();
-
-	//AVISTREAMHEADER strhHeader();
-
-	//avi_chunk_h strfHeader_c();
-
-	//BITMAPINFOHEADER strfHeader_v();
-
-	//avi_list_h moviHeader();
-
 	int WriteHeaderSequence();
-
-
-	void init_sizes();
 
 	uint8_t* _dataBuffer;
 
@@ -62,7 +37,7 @@ public:
 
 	~AVIContainer();
 
-	void SetFourCC(uint32_t* fourCC, char value[]);
+	void SetFourCC(uint32_t* fourCC, const char value[]);
 
 	//void SetFourCC(uint32_t* fcc, std::string str);
 
@@ -70,7 +45,7 @@ public:
 
 	unsigned AddFrame(void* dataBuffer, unsigned offset);
 
-	void* GetFileData(unsigned int offset, unsigned int blockSize);
+	void* GetFileData(unsigned int& offset, unsigned int blockSize);
 
 	void WriteToFile(std::string filePath);
 };

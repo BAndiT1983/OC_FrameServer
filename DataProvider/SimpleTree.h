@@ -54,9 +54,9 @@ public:
 		{
 			//childSize += sizeof(uint32_t);
 			uint32_t headerSize = 0;// = > (dataBuffer[0]) + offset + sizeof(uint32_t);
-			memcpy(&headerSize, dataBuffer + offset + sizeof(uint32_t), sizeof(uint32_t));
+			memcpy(&headerSize, (uint8_t*)dataBuffer + offset + sizeof(uint32_t), sizeof(uint32_t));
 			headerSize += childSize;
-			memcpy(dataBuffer + offset + sizeof(uint32_t), &headerSize, sizeof(uint32_t));
+			memcpy((uint8_t*)dataBuffer + offset + sizeof(uint32_t), &headerSize, sizeof(uint32_t));
 			std::cout << "Written bytes: " << headerSize << std::endl;
 		}
 

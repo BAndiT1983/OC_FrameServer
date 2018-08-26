@@ -39,3 +39,7 @@
 CMakeSettings.json
 *.vcxproj
 *.filters
+
+\.vscode/
+/build/*
+CMakeLists\.txt\.user
